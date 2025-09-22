@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Premium Dental Color System - Teal/Mint/Pearl Palette */
+    --background: 190 20% 98%;
+    --foreground: 200 15% 15%;
+
+    --card: 185 25% 96%;
+    --card-foreground: 200 15% 15%;
+
+    --popover: 185 30% 95%;
+    --popover-foreground: 200 15% 15%;
+
+    /* Primary: Sophisticated Teal */
+    --primary: 180 45% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 180 55% 65%;
+
+    /* Secondary: Soft Mint */
+    --secondary: 160 35% 85%;
+    --secondary-foreground: 200 15% 20%;
+
+    /* Muted: Pearl Gray */
+    --muted: 200 10% 90%;
+    --muted-foreground: 200 8% 50%;
+
+    /* Accent: Sky Blue */
+    --accent: 200 60% 75%;
+    --accent-foreground: 200 15% 15%;
+
+    /* Silver Accents */
+    --silver: 200 15% 75%;
+    --silver-light: 200 20% 85%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 190 15% 88%;
+    --input: 190 20% 92%;
+    --ring: 180 45% 45%;
+
+    /* Premium Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--silver-light)));
+    
+    /* Elegant Shadows */
+    --shadow-soft: 0 4px 20px -8px hsl(var(--primary) / 0.15);
+    --shadow-medium: 0 8px 30px -12px hsl(var(--primary) / 0.25);
+    --shadow-strong: 0 16px 40px -16px hsl(var(--primary) / 0.35);
+    
+    /* Smooth Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 185 25% 96%;
+    --sidebar-foreground: 200 15% 20%;
+    --sidebar-primary: 180 45% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 190 20% 90%;
+    --sidebar-accent-foreground: 200 15% 20%;
+    --sidebar-border: 190 15% 85%;
+    --sidebar-ring: 180 45% 45%;
+  }
+
+  .dark {
+    --background: 200 25% 8%;
+    --foreground: 185 25% 95%;
+
+    --card: 200 20% 12%;
+    --card-foreground: 185 25% 95%;
+
+    --popover: 200 20% 10%;
+    --popover-foreground: 185 25% 95%;
+
+    --primary: 180 50% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 180 60% 70%;
+
+    --secondary: 200 15% 25%;
+    --secondary-foreground: 185 25% 90%;
+
+    --muted: 200 10% 20%;
+    --muted-foreground: 200 8% 65%;
+
+    --accent: 200 45% 65%;
+    --accent-foreground: 200 25% 10%;
+
+    --silver: 200 20% 65%;
+    --silver-light: 200 25% 75%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 200 15% 25%;
+    --input: 200 20% 18%;
+    --ring: 180 50% 55%;
+    --sidebar-background: 200 25% 8%;
+    --sidebar-foreground: 185 25% 90%;
+    --sidebar-primary: 180 50% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 200 15% 20%;
+    --sidebar-accent-foreground: 185 25% 90%;
+    --sidebar-border: 200 15% 20%;
+    --sidebar-ring: 180 50% 55%;
+  }
+}
+
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  /* Premium Typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+  
+  /* Smooth Animations */
+  * {
+    transition: var(--transition-fast);
+  }
+}
+
+@layer components {
+  /* Interactive Elements */
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-[0_0_20px_hsl(var(--primary-glow)/0.3)];
+  }
+  
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-medium;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+  
+  /* Elegant Animations */
+  .fade-in {
+    animation: fadeIn 0.7s ease-out;
+  }
+  
+  .slide-up {
+    animation: slideUp 0.7s ease-out;
+  }
+  
+  .scale-in {
+    animation: scaleIn 0.5s ease-out;
+  }
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

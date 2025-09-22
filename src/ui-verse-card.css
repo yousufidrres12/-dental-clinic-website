@@ -1,0 +1,82 @@
+.ui-verse-card {
+  position: relative;
+  width: 100%;
+  min-height: 320px;
+  background: mediumturquoise;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  font-weight: bold;
+  border-radius: 15px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+}
+
+.ui-verse-card__icon {
+  position: relative;
+  z-index: 2;
+  font-size: 120px;
+  color: #0891b2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.5s;
+}
+
+.ui-verse-card__content {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s;
+  padding: 2rem;
+  text-align: center;
+}
+
+.ui-verse-card::before,
+.ui-verse-card::after {
+  position: absolute;
+  content: "";
+  width: 20%;
+  height: 20%;
+  background-color: lightblue;
+  transition: all 0.5s;
+  z-index: 1;
+}
+
+.ui-verse-card::before {
+  top: 0;
+  right: 0;
+  border-radius: 0 15px 0 100%;
+}
+
+.ui-verse-card::after {
+  bottom: 0;
+  left: 0;
+  border-radius: 0 100% 0 15px;
+}
+
+.ui-verse-card:hover::before,
+.ui-verse-card:hover::after {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+
+.ui-verse-card:hover .ui-verse-card__icon {
+  opacity: 0;
+}
+
+.ui-verse-card:hover .ui-verse-card__content {
+  opacity: 1;
+  pointer-events: auto;
+}

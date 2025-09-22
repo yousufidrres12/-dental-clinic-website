@@ -1,0 +1,76 @@
+.eth-card {
+  width: 420px;
+  height: 340px;
+  background: var(--gradient-card);
+  border-radius: var(--radius, 24px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: hsl(var(--card-foreground));
+  transition: var(--transition-smooth, 0.2s ease-in-out);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-medium, 0 8px 32px 0 rgba(31, 38, 135, 0.18));
+}
+
+.eth-card-img {
+  height: 90px;
+  width: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  margin-bottom: 1.5rem;
+  transition: filter 0.2s;
+}
+
+.eth-card-head {
+  font-size: 1.5rem;
+  font-weight: bold;
+  z-index: 2;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  color: hsl(var(--primary));
+}
+
+.eth-card-hidden {
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  transition: var(--transition-smooth, 0.2s ease-in-out);
+  z-index: 2;
+  text-align: center;
+  color: hsl(var(--accent-foreground));
+  font-size: 1.1rem;
+  padding: 0 18px;
+}
+.eth-card:hover .eth-card-hidden {
+  opacity: 1;
+}
+
+.eth-card:hover .eth-card-img,
+.eth-card:hover .eth-card-head {
+  filter: blur(7px);
+}
+.eth-card:hover .eth-card-img {
+  animation: eth-anim 3s infinite;
+}
+@keyframes eth-anim {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.eth-card:hover {
+  transform: translateY(-16px) scale(1.04);
+}
